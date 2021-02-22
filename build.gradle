@@ -2,6 +2,7 @@ plugins {
     id 'fabric-loom'
     id 'maven-publish'
     id "org.jetbrains.kotlin.jvm"
+    id "co.riiid.gradle" version "0.4.2"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -19,16 +20,30 @@ repositories {
     maven { url = "http://maven.fabricmc.net/" }
 }
 
+github {
+    owner = 'ZygZagGaming'
+    repo = 'Mod-Browser'
+    token = '20e540793b891398d9f21407ec3b1882dc1ce89b'
+    tagName = project.mod_version
+    name = "v${project.mod_version}"
+    assets = [
+            'app/build/libs'
+    ]
+
+}
+
 dependencies {
     //to change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation 'org.json:json:20201115'
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+    modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.

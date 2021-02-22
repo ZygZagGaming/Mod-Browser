@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "modbrowser",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Mod Browser",
+  "description": "Adds a browser to the Mod Menu mod",
   "authors": [
     "Me!"
   ],
@@ -14,16 +14,16 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/modbrowser/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleModKt::init"
+      "com.zygzag.modbrowser.ModBrowserKt::init"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "modbrowser.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.8.7",
